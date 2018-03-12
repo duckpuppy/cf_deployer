@@ -168,7 +168,7 @@ describe CfDeployer::Stack do
   context '#output' do
     it 'should get output value' do
       expect(@cf_driver).to receive(:query_output).with('mykey'){ 'myvalue'}
-      @stack.output('mykey').should eq('myvalue')
+      expect(@stack.output('mykey')).to eq('myvalue')
     end
 
     it 'should get error if output is empty' do
@@ -180,12 +180,12 @@ describe CfDeployer::Stack do
   context '#find_output' do
     it 'should get output value' do
       expect(@cf_driver).to receive(:query_output).with('mykey'){ 'myvalue'}
-      @stack.find_output('mykey').should eq('myvalue')
+      expect(@stack.find_output('mykey')).to eq('myvalue')
     end
 
     it 'should return nil for non-existent value' do
       expect(@cf_driver).to receive(:query_output).with('mykey'){ nil }
-      @stack.find_output('mykey').should be(nil)
+      expect(@stack.find_output('mykey')).to be(nil)
     end
   end
 
