@@ -35,18 +35,18 @@ describe 'Auto Scaling Group Swap Deployment Strategy' do
     it 'no if no G and B stacks exist' do
       blue_stack.die!
       green_stack.die!
-      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context).exists?).to be_false
+      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context)).not_to exist
     end
 
     it 'yes if B stacks exist' do
       blue_stack.live!
       green_stack.die!
-      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context).exists?).to be_true
+      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context)).to exist
     end
     it 'yes if G  stacks exist' do
       blue_stack.die!
       green_stack.live!
-      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context).exists?).to be_true
+      expect(CfDeployer::DeploymentStrategy.create(app, env, component, context)).to exist
     end
 
   end

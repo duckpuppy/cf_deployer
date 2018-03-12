@@ -226,7 +226,7 @@ describe 'Autoscaling group driver' do
       expect(group).to receive(:desired_capacity).and_return(expected_number)
       expect(@driver).to receive(:healthy_instance_count).and_return(expected_number)
 
-      expect(@driver.desired_capacity_reached?).to be_true
+      expect(@driver.desired_capacity_reached?).to be true
     end
 
     it 'returns false if healthy instance count is less than desired capacity' do
@@ -235,7 +235,7 @@ describe 'Autoscaling group driver' do
       expect(group).to receive(:desired_capacity).and_return(expected_number)
       expect(@driver).to receive(:healthy_instance_count).and_return(expected_number - 1)
 
-      expect(@driver.desired_capacity_reached?).to be_false
+      expect(@driver.desired_capacity_reached?).to be false
     end
 
     it 'returns true if healthy instance count is more than desired capacity' do
@@ -244,7 +244,7 @@ describe 'Autoscaling group driver' do
       expect(group).to receive(:desired_capacity).and_return(expected_number)
       expect(@driver).to receive(:healthy_instance_count).and_return(expected_number + 1)
 
-      expect(@driver.desired_capacity_reached?).to be_true
+      expect(@driver.desired_capacity_reached?).to be true
     end
   end
 end

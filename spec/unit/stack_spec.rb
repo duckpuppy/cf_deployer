@@ -227,7 +227,7 @@ describe CfDeployer::Stack do
       allow(@stack).to receive(:exists?).and_return(true, true)
       allow(@stack).to receive(:stack_status).and_raise(AWS::CloudFormation::Errors::ValidationError.new('I am an error'))
       expect(@cf_driver).to receive(:delete_stack)
-      expect {@stack.delete}.to raise_error
+      expect {@stack.delete}.to raise_error('I am an error')
     end
   end
 

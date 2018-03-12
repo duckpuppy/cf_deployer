@@ -188,19 +188,19 @@ describe CfDeployer::DeploymentStrategy::CnameSwap do
       blue_stack.die!
       green_stack.die!
       cname_swap = CfDeployer::DeploymentStrategy.create('myapp', 'dev', 'web', @context)
-      expect(cname_swap.exists?).to be_false
+      expect(cname_swap).not_to exist
     end
 
     it 'yes, if green stack exists and blue stack does not' do
       blue_stack.die!
       cname_swap = CfDeployer::DeploymentStrategy.create('myapp', 'dev', 'web', @context)
-      expect(cname_swap.exists?).to be_true
+      expect(cname_swap).to exist
     end
 
     it 'yes, if blue stack exists and green stack does not' do
       green_stack.die!
       cname_swap = CfDeployer::DeploymentStrategy.create('myapp', 'dev', 'web', @context)
-      expect(cname_swap.exists?).to be_true
+      expect(cname_swap).to exist
     end
   end
 

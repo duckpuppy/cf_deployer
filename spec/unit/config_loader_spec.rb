@@ -363,7 +363,7 @@ environments:
 
   it 'should keep keep-previous-stack setting' do
     config =  CfDeployer::ConfigLoader.new.load(:'config-file' => @config_file)
-    expect(config[:components][:'front-end'][:settings][:'keep-previous-stack']).to be_false
+    expect(config[:components][:'front-end'][:settings][:'keep-previous-stack']).to be false
   end
 
   context 'targets' do

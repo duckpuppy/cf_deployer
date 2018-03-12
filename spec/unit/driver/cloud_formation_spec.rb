@@ -60,7 +60,7 @@ describe 'CloudFormation' do
         result = cloud_formation.update_stack :template, {}
       end
 
-      expect(result).to be_false
+      expect(result).to be false
     end
 
     it 'returns false if no updates were performed (because no difference in template)' do
@@ -72,7 +72,7 @@ describe 'CloudFormation' do
         result = cloud_formation.update_stack :template, {}
       end
 
-      expect(result).to be_false
+      expect(result).to be false
     end
 
     it 'returns true when updates are performed' do
@@ -85,7 +85,7 @@ describe 'CloudFormation' do
         result = cloud_formation.update_stack :template, {}
       end
 
-      expect(result).to be_true
+      expect(result).to be true
     end
 
   end
